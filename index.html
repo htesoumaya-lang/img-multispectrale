@@ -29,7 +29,7 @@ h1{color:#2c3e50;margin:0;font-size:28px}
 <div class="image-grid" id="imageGrid"></div>
 </div>
 <div class="info">
-<p>Image recomposée à partir de 12 sections haute définition - Affichage unifié</p>
+<p>Image Landsat multispectrale découpée en 12 sections haute définition</p>
 </div>
 </div>
 
@@ -53,6 +53,8 @@ tilePaths.forEach((path, index) => {
     };
     grid.appendChild(img);
 });
+
+console.log("Grille de 12 tuiles chargée");
 </script>
 </body>
 </html>
