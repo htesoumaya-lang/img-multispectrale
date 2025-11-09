@@ -10,12 +10,9 @@ body{font-family:Arial;background:#2c3e50;display:flex;justify-content:center;al
 .header{margin-bottom:30px;border-bottom:2px solid #ecf0f1;padding-bottom:20px}
 .logo{height:80px;margin-bottom:15px}
 h1{color:#2c3e50;margin:0;font-size:28px}
-.controls{margin:25px 0}
-button{background:#3498db;color:#fff;border:none;padding:12px 25px;margin:0 10px;border-radius:25px;cursor:pointer;font-size:16px;transition:all .3s ease;font-weight:700}
-button:hover{background:#2980b9;transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,.2)}
-.image-container,.single-image-container{border:3px solid #34495e;border-radius:10px;padding:10px;background:#f8f9fa;margin:0 auto 20px auto}
+.image-container{border:3px solid #34495e;border-radius:10px;padding:10px;background:#f8f9fa;margin:0 auto 20px auto}
 .image-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:0;width:1024px;height:768px;margin:0 auto;border:2px solid #7f8c8d;border-radius:5px;overflow:hidden}
-.single-image,.tile{width:100%;height:100%;object-fit:cover}
+.tile{width:100%;height:100%;object-fit:cover}
 .info{color:#7f8c8d;margin-top:20px;font-style:italic}
 .dimensions{color:#2c3e50;font-weight:bold;margin:10px 0;background:#e8f4fc;padding:8px;border-radius:5px}
 </style>
@@ -27,11 +24,7 @@ button:hover{background:#2980b9;transform:translateY(-2px);box-shadow:0 4px 8px 
 <h1>Image Multispectrale Landsat</h1>
 <div class="dimensions">Dimensions : 791 × 655 pixels | Grille : 4×3 tuiles</div>
 </div>
-<div class="controls">
-<button onclick='showView("composite")'>Vue Composite (12 tuiles)</button>
-<button onclick='showView("single")'>Vue Simple</button>
-</div>
-<div id="compositeView">
+
 <div class="image-container">
 <div class="image-grid" id="imageGrid"></div>
 </div>
@@ -39,15 +32,7 @@ button:hover{background:#2980b9;transform:translateY(-2px);box-shadow:0 4px 8px 
 <p>Image recomposée à partir de 12 sections haute définition - Affichage unifié</p>
 </div>
 </div>
-<div id="singleView" style="display:none">
-<div class="single-image-container">
-<img src="0.png" alt="Vue complète" class="single-image">
-</div>
-<div class="info">
-<p>Vue complète en résolution standard</p>
-</div>
-</div>
-</div>
+
 <script>
 // Configuration des 12 tuiles
 const tilePaths = [
@@ -68,15 +53,6 @@ tilePaths.forEach((path, index) => {
     };
     grid.appendChild(img);
 });
-
-// Bascule entre les vues
-function showView(viewType) {
-    document.getElementById('compositeView').style.display = (viewType === 'composite') ? 'block' : 'none';
-    document.getElementById('singleView').style.display = (viewType === 'single') ? 'block' : 'none';
-}
-
-// Vue composite par défaut
-showView('composite');
 </script>
 </body>
 </html>
